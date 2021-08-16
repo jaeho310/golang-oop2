@@ -1,5 +1,5 @@
 # golang-semi-oop
 
 ## golang semi oop 방식입니다.
-설명이 필요하면 아래 블로그를 참고해주세요
+설명은 블로그에 작성하였습니다.
 (https://frozenpond.tistory.com/123)
