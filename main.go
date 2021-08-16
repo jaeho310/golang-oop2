@@ -7,12 +7,9 @@ import (
 )
 
 func main() {
-	myFood := dto.FoodDto{}.New("스테이크", 2)
+	myFood := &dto.FoodDto{Name: "스테이크", Count: 2}
 
-	kitChen := infrastructure.Kitchen{}.New()
-	diningHall := infrastructure.DiningHall{}.New(kitChen)
-
-	result, err := diningHall.Order(myFood)
+	result, err := infrastructure.DiningHall{}.Order(myFood)
 	if err != nil {
 		fmt.Println(err.Error())
 		return

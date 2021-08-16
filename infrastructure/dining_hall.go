@@ -5,19 +5,13 @@ import (
 	"golang-oop/dto"
 )
 
-type DiningHall struct {
-	kitchen *Kitchen
-}
+type DiningHall struct{}
 
-func (DiningHall) New(kitchen *Kitchen) *DiningHall {
-	return &DiningHall{kitchen}
-}
-
-func (diningHall *DiningHall) Order(foodDto *dto.FoodDto) (string, error) {
-	if foodDto.GetName() == "" || foodDto.GetCount() <= 0 {
+func (diningHall DiningHall) Order(foodDto *dto.FoodDto) (string, error) {
+	if foodDto.Name == "" || foodDto.Count <= 0 {
 		return "", errors.New("주문을 확인해주세요")
 	}
-	response, err := diningHall.kitchen.Cook(foodDto)
+	response, err := Kitchen{}.Cook(foodDto)
 	if err != nil {
 		return "", err
 	}
